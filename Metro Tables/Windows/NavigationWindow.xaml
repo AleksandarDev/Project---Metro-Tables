@@ -1,0 +1,33 @@
+﻿<Window x:Class="Metro_Tables.NavigationWindow" 
+					xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"		
+	
+					Title="Metro Tables" 
+					Height="740" Width="1300"
+					FontFamily="/Metro Tables;component/Fonts/#Segoe WP SemiLight" 
+					Icon="/Metro Tables;component/Images/Logo/Logo512.PNG" 
+					WindowStartupLocation="CenterScreen" 
+					WindowStyle="None" 
+					AllowsTransparency="True"
+
+					Background="Transparent">
+
+	<Window.TaskbarItemInfo>
+		<TaskbarItemInfo x:Name="taskbarItemInfo" x:FieldModifier="public" />
+	</Window.TaskbarItemInfo>
+	
+	<Border Padding="40" x:Name="WindowBorder">
+		<Border.Effect>
+			<DropShadowEffect Direction="315" BlurRadius="40" RenderingBias="Performance" />
+		</Border.Effect>
+		<Frame x:Name="CurrentPage" NavigationUIVisibility="Hidden" ClipToBounds="True" JournalOwnership="OwnsJournal">
+			<Frame.Background>
+				<RadialGradientBrush>
+					<GradientStop Color="White" Offset="0.3"/>
+					<GradientStop Color="#FFEBEBEB" Offset="1"/>
+				</RadialGradientBrush>
+			</Frame.Background>
+		</Frame>
+	</Border>
+
+</Window>

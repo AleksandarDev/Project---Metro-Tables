@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="MetroTables.Controls.SheetControl"
+			 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 
+			 xmlns:MTControls="clr-namespace:Metro_Tables.Controls"
+			 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="450" 
+			 
+			 FontFamily="Segoe UI Semilight"
+			 Loaded="UserControlLoaded"
+			 SizeChanged="UserControl_SizeChanged">
+	
+	<UserControl.Resources>
+		
+		<Style x:Key="CellLabelStyle" TargetType="{x:Type Label}">
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="Background" Value="White"/>
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="HorizontalContentAlignment" Value="Left"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Label}">
+						<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		
+	</UserControl.Resources>
+	
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="12.15"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="12"/>
+		</Grid.RowDefinitions>
+		
+		<MTControls:FormulaControl x:Name="FormulaControl" Grid.ColumnSpan="2" />
+		
+		<ScrollBar x:Name="ScrollBarVertical" Orientation="Vertical" Grid.Row="1" Grid.Column="1" LargeChange="10" Maximum="100" SmallChange="1" />
+		<ScrollBar x:Name="ScrollBarHorizontal" Orientation="Horizontal" Grid.Row="2" Grid.Column="0" LargeChange="10" Maximum="100" SmallChange="1" ViewportSize="15" Height="Auto" />
+
+		<Grid Grid.Column="0" Grid.Row="1" x:Name="HeadersGrid" PreviewMouseDown="HeadersGrid_PreviewMouseDown">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<Label x:Name="CornerLabel" />
+			<StackPanel x:Name="HorizontalHeaders" Grid.Column="1" Grid.Row="0" Orientation="Horizontal" />
+			<StackPanel x:Name="VerticalHeaders" Grid.Column="0" Grid.Row="1" Orientation="Vertical" />
+			<Canvas x:Name="SheetGridGuidelines" Grid.RowSpan="2" Grid.ColumnSpan="2" ClipToBounds="True" SnapsToDevicePixels="True" Background="{x:Null}" Focusable="False" />
+			<ScrollViewer x:Name="ScrollView" Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" ScrollChanged="ScrollView_ScrollChanged" Padding="0" PreviewMouseWheel="ScrollView_PreviewMouseWheel">
+				<Grid x:Name="SheetGrid" PreviewMouseDown="SheetGrid_PreviewMouseDown" Background="Transparent" Margin="0" PreviewMouseMove="SheetGrid_PreviewMouseMove" PreviewMouseUp="SheetGrid_PreviewMouseUp" />
+			</ScrollViewer>
+		</Grid>
+
+	</Grid>
+</UserControl>

@@ -1,0 +1,17 @@
+﻿###########################################################
+#                                                         #
+#    TODO lista                                           #
+#    Datum kreiranja                                      #
+#			09.02.2012.									  #
+#    Autor												  #
+#			Aleksandar Toplek							  #
+#                                                         #
+###########################################################
+#                                                         #
+#    UI zadaci                                            #
+#                                                         #
+###########################################################
+
+	Uljepsanja
+		- Kvadratici nasumicno generirani bi trebali nestajati i pojavljivati se na drugim mjestima
+			- Vrijeme nestajanja mora biti nasumicno s dosta velikim prozorom tako da ne bi nestajalo nekoliko kvadratica odjednom

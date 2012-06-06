@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="MetroTables.Extensions.Plugins.SamplePlugin.MenuUI"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cp="clr-namespace:DropDownCustomColorPicker;assembly=CustomColorPicker"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="300">
+	<Control.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/MetroTables.UI;component/UI.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Control.Resources>
+	<Grid>
+		<StackPanel Orientation="Horizontal">
+			<GroupBox Header="Sample groupbox" Style="{DynamicResource BottomHeaderGroupBoxStyle}">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<Button Content="fill with random" Grid.Row="0" Margin="3" Style="{DynamicResource SquareButtonStyle}" Click="Button_Click_1" />
+					<Button Content="exit application" Grid.Row="1" Margin="3" Style="{DynamicResource SquareButtonStyle}" />
+				</Grid>
+			</GroupBox>
+            <GroupBox Header="Cell backgrounds" Style="{DynamicResource BottomHeaderGroupBoxStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Background="Navy" Grid.Row="0" Grid.Column="0" Margin="3" Click="Button_Click_2"/>
+                    <Button Background="CornflowerBlue" Grid.Row="1" Grid.Column="0" Margin="3" Click="Button_Click_2"/>
+                    <Button Background="AliceBlue" Grid.Row="2" Grid.Column="0" Margin="3" Click="Button_Click_2"/>
+                    <Button Background="DarkRed" Grid.Row="0" Grid.Column="1" Margin="3" Click="Button_Click_2"/>
+                    <Button Background="Coral" Grid.Row="1" Grid.Column="1" Margin="3" Click="Button_Click_2"/>
+                    <Button Background="PeachPuff" Grid.Row="2" Grid.Column="1" Margin="3" Click="Button_Click_2"/>
+                    <cp:CustomColorPicker Grid.Column="2" Grid.RowSpan="3" Width="40" x:Name="customCP" SelectedColorChanged="customCP_SelectedColorChanged_1"></cp:CustomColorPicker>
+                </Grid>
+            </GroupBox>
+		</StackPanel>
+	</Grid>
+</UserControl>

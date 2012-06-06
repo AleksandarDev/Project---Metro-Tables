@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Metro_Tables.Controls.MRCControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="300"
+			 
+			 FontFamily="Webdings" FontSize="14.667">
+	<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,0,5,0">
+
+		<Button x:Name="ButtonMinimaze" Content="0" Width="25" Margin="3" Style="{DynamicResource ChromelessButtonStyle}" Click="ButtonMinimaze_Click" />
+		<Button x:Name="ButtonMaximize" Content="1" Width="25" Margin="3" Style="{DynamicResource ChromelessButtonStyle}" Click="ButtonMaximize_Click" />
+		<Button x:Name="ButtonClose" Content="r" Width="25" Margin="3" Style="{DynamicResource ChromelessButtonStyle}" Click="ButtonClose_Click" />
+		
+	</StackPanel>
+</UserControl>
